@@ -2,12 +2,18 @@
 var reversalBtn = document.getElementById("reversalBtn");
 var alphabitsBtn = document.getElementById("alphabitsBtn");
 var palindromeBtn = document.getElementById("palindromeBtn");
-var inputStr = document.getElementById("inputStr").value;
+var inputStr = document.getElementById("inputStr");
 
 // Add event listeners
-reversalBtn.addEventListener("click", reversalBtn, false);
-alphabitsBtn.addEventListener("click", alphabitsBtn, false);
-palindromeBtn.addEventListener("click", palindromeBtn, false);
+reversalBtn.addEventListener("click", function() {
+	reversal(inputStr.value);
+}, false);
+alphabitsBtn.addEventListener("click", function() {
+	alphabits(inputStr.value);
+}, false);
+palindromeBtn.addEventListener("click", function() {
+	palindrome(inputStr.value);
+}, false);
 
 
 function reversal(str) {
@@ -15,11 +21,13 @@ function reversal(str) {
 	// concatentate elements into a string
 	var reversed = str.split("").reverse().join("");
 	document.getElementById("resultingStr").innerHTML = reversed;
+	console.log(reversed);
 }
 
 function alphabits(str) {
 	var alphabits = str.toLowerCase().split("").sort().join("");
 	document.getElementById("resultingStr").innerHTML = alphabits;
+	console.log(alphabits);
 }
 
 function palindrome(str) {
@@ -32,6 +40,7 @@ function palindrome(str) {
 	} else {
 		document.getElementById("resultingStr").innerHTML = "<h1 style='color:red\;''>Your string ain't a palindrome.</h1>";
 	}
+	console.log(palindrome);
 }
 
 
